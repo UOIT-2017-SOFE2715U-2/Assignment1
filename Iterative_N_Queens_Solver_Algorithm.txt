@@ -1,0 +1,44 @@
+Algorithm IterativeNQueens(N):
+Input: An integer N of queens
+Output: 2 dimentional array containg the solutions and the times
+// every queen occupied a row already. So we changing the column position of queens
+Let Queens be array of size N
+Let solutions be an empty resizable array
+Let times be an empty resizable array
+Let current_row ← 0
+Let column ← 0
+    while columns < N and current_row >= 0 do
+        // test if this queen attacked by previous queens
+        attacked ← false
+		previous_row ← 0
+		while previous_row < current_row and not attacked do
+            If  (if (column = queens[previous_row] or
+                    current_row + queens[previous_row] = previous_row + column or
+                    current_row - queens[previous_row] = previous_row - column)) then
+                // it is attacked
+                Attacked ← true
+			previous_row ← previous_row + 1
+		// if free position found for this queen,
+		if Attacked = false then 
+			queens[current_row] ← column
+			if current_row = N - 1 then // if it is the last row
+				solutions.append(queens)
+				column ← column + 1
+				if column = N then
+					// back track
+					while column >= N and current_row >= 0 do
+						current_row ← current_row - 1
+						column ← queens[current_row] + 1
+			else
+				column ← 0
+				current_row ← current_row + 1
+        // if there is no position for current queen
+        else if attacked = true AND column = N - 1 then
+			column ← column + 1
+			// back track
+			while column >= N and current_row >= 0 do
+				current_row ← current_row - 1
+				columns ← queens[current_row] + 1
+		else
+			columns ← columns + 1
+return solutions, times
