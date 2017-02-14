@@ -10,7 +10,7 @@ from PIL import Image
 import os
 
 
-def DrawNQueensSolution(numberOfQueens, sol_list, solutionNumber):
+def draw_n_queens_solution(numberOfQueens, sol_list, solutionNumber):
     path = "../solutions/" + str(numberOfQueens) + "-Queens Solutions/"
     if not os.path.exists(path):
         os.makedirs(path)
