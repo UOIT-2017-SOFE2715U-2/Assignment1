@@ -1,4 +1,4 @@
-Develope an algorithm to solve the N Queen problem. 
+Develop an algorithm to solve the N Queen problem. 
 
 The N Queen problem is as follow: 
 Place n queens in n x n chessboard such that no queen is attacking another queen.
